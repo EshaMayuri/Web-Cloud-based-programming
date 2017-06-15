@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab Assignment-1</title>
+</head>
+<!--<body bgcolor="#d3d3d3">-->
+<!--<body background="backgrounds.jpg" style="padding-left:10%;padding-top: 2%">-->
+<body bgcolor="#2f4f4f">
+    <div style="color: white">
+        <h1>CS5590/490-0002: Programming for Web/Cloud based Application</h1>
+        <h2>Lab Assignment-1 - Github</h2>
+    </div>
+    <hr>
+    <div style="color: white">
+        <h3><u>Github</u></h3>
+        <p><span style="color: white; font-style: italic"><b>GitHub</b></span> is a web-based Git or version control repository and Internet hosting service. It is mostly used for code.
+            It offers all of the distributed version control and source code management (SCM) functionality of Git as well as
+            adding its own features. It provides access control and several collaboration features such as bug tracking, feature
+            requests, task management, and wikis for every project. GitHub offers both plans for private and free repositories
+            on the same account which are commonly used to host open-source software projects.</p>
+
+        <img src="images/github.png" height="100" width="100">
+
+        <h3>Various operations performed in Git in order to setup repository and publish the code: </h3>
+        <ol>
+            <a href="#GitAccountSetup"><li style="color: whitesmoke"><u>Setting up GitHub account</u></li></a>
+            <a href="#CreatingRepo"><li style="color: whitesmoke"><u>Creating a new Repository</u></li></a>
+            <a href="#CloneRepo"><li style="color: whitesmoke"><u>Cloning repository to local</u></li></a>
+                <ul>
+                    <li style="color: whitesmoke">Clone using URL</li>
+                    <span>------(OR)------</span>
+                    <li style="color: whitesmoke">Clone using Git desktop</li>
+
+                </ul>
+            <a href="#MovingChanges"><li style="color: whitesmoke"><u>Moving changes to public repository</u></li></a>
+                <ul>
+                    <a href=""><li style="color: whitesmoke"><u>Moving changes using Git shell(command prompt)</u></li></a>
+                    <ol>
+                        <a href=""><li style="color: whitesmoke"><u>Staging the files to be committed</u></li></a>
+                        <a href=""><li style="color: whitesmoke"><u>Committing files</u></li></a>
+                        <a href=""><li style="color: whitesmoke"><u>Pushing changes to public repository</u></li></a>
+                    </ol>
+                    <span>----------(OR)----------</span>
+                    <a href=""><li style="color: whitesmoke"><u>Moving changes using Git desktop</u></li></a>
+                    <ol>
+                        <a href=""><li style="color: whitesmoke"><u>Committing changes</u></li></a>
+                        <a href=""><li style="color: whitesmoke"><u>Synching the committed files</u></li></a>
+                    </ol>
+                </ul>
+        </ol>
+    </div>
+
+    <div id="GitAccountSetup"  style="color: whitesmoke">
+        <h3 style="color: whitesmoke"><u>Setting up GitHub account: </u></h3>
+        <p>We need to signup for a Git account on
+            <span style="color: white; font-style: italic"><b><a href="https://github.com/" style="color: whitesmoke">Github.com</a></b></span></p>
+        <a href="https://github.com/EshaMayuri/Web-Cloud-based-programming/blob/master/Lab1/Documentation/CreatingAccount.PNG" target="_blank">
+            <img src="images/CreatingAccount.PNG" height="300" width="500"></a>
+    </div>
+
+    <div id="CreatingRepo"  style="color: whitesmoke">
+        <h3 style="color: whitesmoke"><u>Creating a new Repository:</u></h3>
+        <p>We can create a new repository using the <b>New Repository</b> option available in the home page of our github account.</p>
+        <a href="https://github.com/EshaMayuri/Web-Cloud-based-programming/blob/master/Lab1/Documentation/1-RepoCreation.png" target="_blank">
+            <img src="images/1-RepoCreation.png" height="300" width="500"></a>
+        <p>Once we select the new repository option we will be redirected to another page where we need to give a name to the repository.
+            With creation of repository we can also create a readme file for the repository by checking the option as shown in the figure below.
+            In my case I have named my repository as <b>Web-Cloud-based-programming</b>
+        </p>
+        <a href="https://github.com/EshaMayuri/Web-Cloud-based-programming/blob/master/Lab1/Documentation/2-CreatedRepo.png" target="_blank">
+            <img src="images/2-CreatedRepo.png" height="300" width="500"></a>
+    </div>
+
+    <div id="CloneRepo"  style="color: whitesmoke">
+        <h3 style="color: whitesmoke"><u>Cloning repository to local:</u></h3>
+        <p>Now that we have created a repository in our public git account, we still do not have the repository structure in our local.
+            We can create a local repository in our system by cloning the repository to local. If we clone the repository a
+            replica of our public repository will be created in our local system. We can clone the public repository into our local in two ways.
+            <ul>
+                <li>Clone using URL and Git shell</li>
+                <li>Clone using Git desktop</li>
+            </ul>
+        </p>
+        <div style="color: whitesmoke">
+            <h3><b>Clone using URL and Git shell:</b></h3>
+            <p>We can clone repository into our local by accessing the clone URL available on our repository page as show in the figure below. </p>
+            <a href="https://github.com/EshaMayuri/Web-Cloud-based-programming/blob/master/Lab1/Documentation/3-LinkToCloneRepoToLocal.png" target="_blank">
+                <img src="images/3-LinkToCloneRepoToLocal.png" height="300" width="500"></a>
+            <p>We need to copy the link and run it through git shell using the command <b>git clone "https://github.com/EshaMayuri/Web-Cloud-based-programming.git"</b>
+            Please refer the picture below.</p>
+            <a href="https://github.com/EshaMayuri/Web-Cloud-based-programming/blob/master/Lab1/Documentation/4-CloningToLocal.png" target="_blank">
+                <img src="images/4-CloningToLocal.png" height="100" width="800"></a>
+        </div>
+
+        <div style="color: whitesmoke">
+            <h3><b>Clone using Git desktop:</b></h3>
+            <p>We can clone repository into our local by git desktop application available. </p>
+            <a href="https://github.com/EshaMayuri/Web-Cloud-based-programming/blob/master/Lab1/Documentation/5-GitDesktop-1.PNG" target="_blank">
+                <img src="images/5-GitDesktop-1.PNG" height="300" width="500"></a>
+            <p>We need to open the GIT desktop application click on the '+' sign on the desktop and select the clone option. Then try to filter the repository and clone it into the desired location
+                on the system.</p>
+            <a href="https://github.com/EshaMayuri/Web-Cloud-based-programming/blob/master/Lab1/Documentation/6-GitDEsktop-2.PNG" target="_blank">
+                <img src="images/6-GitDEsktop-2.PNG" height="300" width="500"></a>
+            <p>So this is where I have cloned my repository.</p>
+            <a href="https://github.com/EshaMayuri/Web-Cloud-based-programming/blob/master/Lab1/Documentation/7-Git-Local.PNG" target="_blank">
+                <img src="images/7-Git-Local.PNG" height="300" width="500"></a>
+        </div>
+    </div>
+    <div id="MovingChanges"  style="color: whitesmoke">
+        <h3 style="color: whitesmoke"><u>Moving Changes o public repository:</u></h3>
+        <p>Now that we have created a repository in our local, we can work on the repository in our local.
+            Once we are sure our code is correct and bug free, we can push our changes to public repository which will be accessible by anyone.
+            We can push the changes to public repository in two ways.
+        <ul>
+            <li>Moving changes using Git shell(command prompt)</li>
+            <li>Moving changes using Git desktop</li>
+        </ul>
+        </p>
+
+        <div style="color: whitesmoke">
+            <h3><b>Moving changes using Git shell(command prompt):</b></h3>
+            <p>This process of moving changes to public repository using Git shell can be done in 3 steps. </p>
+            <ol>
+                <li>Staging the files to be committed.</li>
+                <li>Committing files.</li>
+                <li>Pushing changes to public repository.</li>
+            </ol>
+            <div style="color: whitesmoke">
+                <h4><b>Staging the files to be committed:</b></h4>
+                <p>
+                    Whenever we make any changes in our local we stage the files so that the staged changes can be pushed in
+                    the next commit. We can check if any files where modified and that needs staging using <b>git status</b>(Please refer the figure below).
+                    Sagging the files can be done using the command <b>git add file_name/folder_name</b>(Please refer the figure below).
+                    <a href="https://github.com/EshaMayuri/Web-Cloud-based-programming/blob/master/Lab1/Documentation/8-Status-Gitshell.PNG" target="_blank">
+                        <img src="images/8-Status-Gitshell.PNG" height="100" width="800"></a>
+                    <a href="https://github.com/EshaMayuri/Web-Cloud-based-programming/blob/master/Lab1/Documentation/9-Stagging-Gitshell.PNG" target="_blank">
+                        <img src="images/9-Stagging-Gitshell.PNG" height="100" width="800"></a>
+                </p>
+                <h4><b>Committing staged files:</b></h4>
+                <p>
+                    No that we have staged the files we need to commit the staged files. We can commit the staged files using command
+                    <b>git commit -m "commit comments"</b>(as shown in figure below).
+                    Whenever we commit the files we are committing the
+                    changes to our private git.
+                </p>
+                <a href="https://github.com/EshaMayuri/Web-Cloud-based-programming/blob/master/Lab1/Documentation/10-CommitingStaggedFiles-Gitshell.PNG" target="_blank">
+                    <img src="images/10-CommitingStaggedFiles-Gitshell.PNG" height="100" width="800"></a>
+
+                <h4><b>Pushing changes to public repository:</b></h4>
+                <p>
+                    When we commit we are actually not moving changes to public repository.
+                    We need to push the committed files using <b>git push</b> command(refer the figure below).
+                </p>
+                <a href="https://github.com/EshaMayuri/Web-Cloud-based-programming/blob/master/Lab1/Documentation/11-GitPush-Gitshell.PNG" target="_blank">
+                    <img src="images/11-GitPush-Gitshell.PNG" height="100" width="800"></a>
+            </div>
+        </div>
+
+        <div style="color: whitesmoke">
+            <h3><b>Moving changes using Git desktop:</b></h3>
+            <p>This process of moving changes to public repository using Git desktop can be done in 2 steps. </p>
+            <ol>
+                <li>Committing changes.</li>
+                <li>Synching the committed files</li>
+            </ol>
+            <div style="color: whitesmoke">
+                <h4><b>Committing changes:</b></h4>
+                <p>
+                    Whenever we access the git desktop and the corresponding repository, the git desktop displays the changes
+                    made from the last synchronization task(Please refer the figure below).
+                </p>
+                <a href="https://github.com/EshaMayuri/Web-Cloud-based-programming/blob/master/Lab1/Documentation/12-GitChanges-GitDesktop.PNG" target="_blank">
+                    <img src="images/12-GitChanges-GitDesktop.PNG" height="300" width="500"></a>
+                <p>
+                    If we want to commit the changes to our private git we need to provide git commit command in summary tab and
+                    commit the changes to master(As shown in figure below). Input in description tab is optional.
+                </p>
+                <a href="https://github.com/EshaMayuri/Web-Cloud-based-programming/blob/master/Lab1/Documentation/13-GitCommit-GitDesktop.PNG" target="_blank">
+                    <img src="images/13-GitCommit-GitDesktop.PNG" height="300" width="500"></a>
+                <h4><b>Synching the committed files:</b></h4>
+                <p>
+                    As discussed when we commit we are actually not moving changes to public repository.
+                    Here in Git desktop we need to select the <b>sync</b> option available in order to push the changes to our public repository
+                    (refer the figure).
+                </p>
+                <a href="https://github.com/EshaMayuri/Web-Cloud-based-programming/blob/master/Lab1/Documentation/14-PushChanges-GitDesktop.png" target="_blank">
+                    <img src="images/14-PushChanges-GitDesktop.png" height="300" width="500"></a>
+            </div>
+        </div>
+    </div>
+    <div  style="color: whitesmoke">
+        <h3 style="color: whitesmoke"><u>A demo on creating repository and commiting changes:</u></h3>
+    </div>
+<iframe width="420" height="345" src="https://www.youtube.com/embed/XGSy3_Czz8k"></iframe>
+<br>
+&nbsp <a href="https://www.facebook.com/">Facebook</a>
+<br>
+&nbsp <a href="https://www.google.com/">Google</a>
+</body>
+</html>
