@@ -1,0 +1,11 @@
+.body{
+    text-align: center;
+    background-color: #E3EDD8;
+}
+.O-Score{
+    background-color: ghostwhite;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+}
+#canvas{border:1px solid red;}

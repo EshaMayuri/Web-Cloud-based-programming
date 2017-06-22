@@ -1,0 +1,32 @@
+*{
+    box-sizing: border-box;
+}
+
+.headerImg{
+    padding: 15px;
+    width: 30%;
+    float: left;
+    height: 200px;
+    width: 200px;
+}
+h1,h3{
+    font-family: 'Lato', sans-serif;
+    color: darkslategray;
+    padding: 15px;
+    float: right;
+    text-align: right;
+    width: 70%;
+}
+.headerText{
+    padding: 15px;
+    width: 70%;
+    float: right;
+    text-align: right;
+}
+.bodyImg{
+    padding:15px;
+    width: 90%;
+    height: 400px;
+    /*background-size: cover;*/
+}
+
