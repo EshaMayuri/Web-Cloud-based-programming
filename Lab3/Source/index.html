@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app = "index">
+<head>
+    <title>Assignment-3</title>
+    <meta charset="UTF-8">
+    <meta name="vieport" content="width=device-width initial-scale=1">
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <!--<script src="https://apis.google.com/js/api.js"></script>-->
+</head>
+<body>
+    <h1 align="center" style="text-align: center;font-style: oblique;color: whitesmoke"><b>Login</b></h1>
+    <div class="container">
+        <div class = "row">
+            <div class = "col-md-offset-3 col-md-6" ng-controller = "indexpage">
+                <form>
+                    <div clas="form-group" style="color: whitesmoke">
+                        <label>Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Email Id" name="email">
+                    </div>
+                    <br>
+                    <div clas="form-group" style="color: whitesmoke">
+                        <label>Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="password" name="password">
+                    </div>
+                    <br>
+                    <div align="center" style="color: whitesmoke">
+                        <button type="submit" ng-click="login()" style="color: black">Login</button>
+                        <button type="submit" ng-click="signup()" style="color: black">Signup</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<script>
+    var myapp = angular.module("index", [])
+        .controller('indexpage', ['$scope', function ($scope) {
+            $scope.login = function () {
+                alert("You are logged in!");
+                window.location.href = "home.html";
+            }
+            $scope.signup = function () {
+                alert("Thank you for registering. Please login in the next page!");
+                window.location.href = "signup.html"
+            }
+        }])
+</script>
+</body>
+</html>

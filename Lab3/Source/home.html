@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" ng-app = "home">
+<head>
+    <meta name="vieport" content="width=device-width initial-scale=1">
+    <title>Home</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+</head>
+<body>
+<h1 align="center" style="text-align: center;font-style: oblique;color: whitesmoke"><b>Look for Git profile here!</b></h1>
+<br>
+<div class="container" ng-controller = "homepage">
+    <div class = "row">
+        <div class = "col-md-offset-3 col-md-6" >
+            <form>
+                <div clas="form-group" style="color: whitesmoke">
+                    <label>User Name</label>
+                    <input type="text" class="form-control" id="username" placeholder="Git user name" name="username">
+                    <br>
+                    <div align="center">
+                        <button type="submit" ng-click="search()" style="color: black">Search</button>
+                    </div>
+                </div>
+            </form>
+                <div id="details" style="color: whitesmoke;display: none">
+                    <h2>Here is the profile you were looking for!</h2>
+                    <table align="center">
+                        <tr>
+                            <div align="center">
+                                <img src="{{profilepic}}" height="100px" width="100px">
+                            </div>
+                        </tr>
+                    </table>
+                    <table align="center">
+                        <tr><td class="col-md-6"><b>Name of the User</b></td>
+                            <td class="col-md-10">{{profilename}}</td>
+                        </tr>
+                        <tr><td class ="col-md-6"><b>ID of the User</b></td>
+                            <td class ="col-md-10">{{id}}</td>
+                        </tr>
+                        <tr><td class ="col-md-6"><b>Profile link</b></td>
+                            <td class ="col-md-10">
+                                <a id="link" ng-href="" ng-click="git()" style="color: whitesmoke;">{{htmlurl}}</a></td>
+                        </tr>
+                        <tr><td class ="col-md-6"><b>Date of creation</b></td>
+                            <td class ="col-md-10">{{creationDate}}</td>
+                        </tr>
+                        <tr><td class ="col-md-6"><b>Number of people the user is following:</b></td>
+                            <td class ="col-md-10">{{following}}</td>
+                        </tr>
+                        <tr><td class ="col-md-6"><b>Number of followers:</b></td>
+                            <td class ="col-md-10">
+                                <a href="#followers" style="color: whitesmoke;" ng-click="followers_func()"><u>{{followers}}</u></a></td>
+                        </tr>
+                        <tr><td class ="col-md-6"><b>Number of Repositories:</b></td>
+                            <td class ="col-md-10">
+                                <a href="#repos" style="color: whitesmoke;" ng-click="repo_func()"><u>{{publicRepo}}</u></a></td></td>
+                        </tr>
+                    </table>
+                </div>
+
+            <div id = "message" style="color: whitesmoke; display: none">
+                <h3>The user you are looking for is not available!</h3>
+            </div>
+                <div id="div_followers"  style="color: whitesmoke;display: none">
+                    <br>
+                    <h3><u>List of five followers of {{profilename}}:</u></h3>
+                    <br>
+                    <div id ="follower">
+                        <div ng-repeat="follower in followersList">
+                            <p><img src="{{follower.followerPic}}" height="80px" width="80px"> <b>{{follower.followerName}}</b> - <a id="link_f" ng-href="" ng-click="git()" style="color: whitesmoke;">{{follower.followerUrl}}</a></p>
+                        </div>
+                    </div>
+                </div>
+            <div id="div_repos"  style="color: whitesmoke;display: none">
+                <br>
+                <h3><u>List of five repositories of {{profilename}}:</u></h3>
+                <br>
+                <div id ="repos">
+                    <div ng-repeat="repo in repoList">
+                        <p><b>{{repo.repoName}}</b> - <a id="link_r" ng-href="" ng-click="git()" style="color: whitesmoke;">{{repo.repoUrl}}</a></p>
+                    </div>
+                </div>
+            </div>
+            <div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="home.js"></script>
+</body>
+</html>
