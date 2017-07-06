@@ -1,0 +1,39 @@
+body
+{
+	background-color:black;
+}
+
+#gamePanel
+{
+	width:320px;
+	height:640px;
+	margin: 0 auto;
+	background-color:#fefefe;
+	margin-top: 10px;
+	border: 4px dotted #6e6e7b;
+}
+
+#row
+{
+	color: #fefefe;
+	width: 320px;
+	font-family: sans-serif, verdana;
+	margin: 0 auto;
+	font-size: 18pt;
+}
+#gameInstructions{
+	color: whitesmoke;
+	width: 300px;
+	font-family: sans-serif, Verdana;
+	padding-left: 5%;
+	font-size: 18pt;
+}
+
+#directions p
+{
+	color: #fefefe;
+	font-size: 14pt;
+	width: 320px;
+	font-family: sans-serif, verdana;
+	margin: 0 auto;
+}

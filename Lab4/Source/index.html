@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Tetris Game</title>
+<meta name="viewport" content="user-scalable=no, initial-scale=0.5, maximum-scale=1, user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
+<body>
+<h1 style="color: whitesmoke; text-align: center"><u>THE TETRIS GAME</u></h1>
+<h2 style="font-style: italic; color: whitesmoke; text-align: center">ENJOY PLAYING!</h2>
+<table>
+	<tr>
+		<td style="padding-left: 120px">
+			<div id="gameInstructions">
+				<p><b><u>Game Instruction:</u></b></p>
+				<p>To move blocks right/left/down use Left/Right/Down arrows.</p>
+				<p>To move block shape use Up arrow.</p>
+			</div>
+		</td>
+		<td style="padding-left: 260px">
+			<div id="gamePanel">
+				<canvas id="canvas" width="320" height="640"></canvas>
+			</div>
+		</td>
+		<td style="padding-left: 300px">
+			<div id="row">
+				<p><b><u>Number Of Rows: </u></b><span id="rows"></span></p>
+			</div>
+		</td>
+	</tr>
+</table>
+
+<script type="text/javascript" src="pieces.js"></script>
+<script type="text/javascript" src="ImageLoader.js"></script>
+<script type="text/javascript" src="game.js"></script>
+</body>
+</html>
