@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="maps">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js" type="application/javascript"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyDODWbm1uPWUDOgi7KbQoyYdQaXL9cmNmk"></script>
+
+    <style>
+        #map {
+            width: 650px;
+            height: 450px;
+        }
+        body{
+            text-align: center;
+            background-image: url("background-weather.jpg");
+        }
+        .sty
+        {
+            color: white;
+            text-decoration-style: dashed;
+            size: 50px;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-top-right-radius: 10px;
+            font-size: 20px;
+            font-variant-caps: petite-caps;
+            background: black;
+        }
+        .change
+        {
+            font-size: 20px;
+            font-variant-caps: petite-caps;
+        }
+        h1{
+            color: black;
+            background: transparent;
+            font-variant-caps: petite-caps;
+        }
+    </style>
+</head>
+<body>
+<h1>Weather forecast for a location!</h1>
+<br>
+<hr>
+<br>
+<br>
+<div align="center" ng-controller="mapsweather">
+    <div>
+        <input class="change" type="text" ng-model="startlocation"  id="startlocation" style="font-size: 20px" placeholder="Enter the location">
+        <!--<input type="text" ng-model="endlocation" id="endlocation" style="font-size: 20px" placeholder="Enter the location">-->
+    </div>
+    <br>
+    <div>
+        <button class="sty" type="btn" ng-click="weather()">Get Weather Details</button>
+    </div>
+    <br>
+    <div id="map" style="height: 400px;"></div>
+    <p class="change">Weather forecast:</p>
+    {{ StartWeather }}
+</div>
+</body>
+</html>
+
+<script>
+    angular.module('maps', [])
+        .controller('mapsweather',  function ($scope,$http)  {
+
+            var map;
+            var mapOptions;
+            var defaultBounds = new google.maps.LatLngBounds(new google.maps.LatLng(37.0902, 95.7129), new google.maps.LatLng(37.0902, 95.7129));
+
+            var options = {
+                bounds: defaultBounds,
+                types: ['geocode'],
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                disableDefaultUI: true
+            };
+
+            var startLocation=document.getElementById('startlocation');
+            var autocompleteStart = new google.maps.places.Autocomplete(startLocation, options);
+
+            $scope.initialize = function () {
+                var pos = new google.maps.LatLng(0, 0);
+                var mapOptions = {
+                    zoom: 1,
+                    center: pos,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    disableDefaultUI: true
+                };
+                map = new google.maps.Map(document.getElementById('map'),
+                    mapOptions);
+            };
+            $scope.weather = function () {
+                var start = document.getElementById('startlocation').value;
+
+                var geocoder = new google.maps.Geocoder();
+
+                geocoder.geocode({'address':start}, function (results, status) {
+                    if(status == google.maps.GeocoderStatus.OK)
+                    {
+                        var lat = results[0].geometry.location.lat();
+                        var lng = results[0].geometry.location.lng();
+                        var latlng = new google.maps.LatLng(lat, lng);
+
+                        var myCenter = new google.maps.LatLng(lat,lng);
+                        var mapCanvas = document.getElementById("map");
+                        var mapOptions = {center: myCenter, zoom: 5};
+                        var map = new google.maps.Map(mapCanvas, mapOptions);
+                        var marker = new google.maps.Marker({position:myCenter});
+                        marker.setMap(map);
+
+                        // Zoom to 9 when clicking on marker
+                        google.maps.event.addListener(marker,'click',function() {
+                            map.setZoom(9);
+                            map.setCenter(marker.getPosition());
+                        });
+                    }
+                })
+
+                var startLocationUrl='https://api.wunderground.com/api/81c5ab4040ab0441/conditions/q/' +start.split(',')[1]+'/' +start.split(',')[0] +'.json';
+                console.log(startLocationUrl);
+
+                $http.get(startLocationUrl).success(function(data1){
+                    $scope.StartWeather = data1.current_observation.temp_f +' Fahrenheit';
+                });
+            };
+            google.maps.event.addDomListener(window, 'load', $scope.initialize);
+
+        });
+</script>

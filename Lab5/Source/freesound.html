@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="sound">
+<head>
+    <meta charset="UTF-8">
+    <title>Free sound API Search</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js" type="application/javascript"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <style>
+        body
+        {
+            background-image: url("background-sound.jpg");
+            text-align: center;
+        }
+        h1{
+            color: white;
+            background: transparent;
+            font-size: 50px;
+            font-variant-caps: petite-caps;
+            text-align: center;
+        }
+        h2{
+            color: white;
+            background: transparent;
+            font-variant-caps: petite-caps;
+            text-align: center;
+        }
+        .change
+        {
+            color: white;
+            background: transparent;
+            font-variant-caps: petite-caps;
+            text-align: center;
+        }
+        #textInput
+        {
+            text-align: center;
+            width: 70%;
+        }
+        #btn
+        {
+            text-align: center;
+            width: 70%;
+            color: white;
+            text-decoration-style: dashed;
+            size: 50px;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-top-right-radius: 10px;
+            font-size: 20px;
+            font-variant-caps: petite-caps;
+            background: black;
+        }
+    </style>
+</head>
+<body>
+<h1>Free sound search engine</h1>
+<div class="row"  ng-controller="soundsearch">
+    <div class="colo-md-6 col-md-offset-3">
+        <form action="#">
+            <br>
+            <input type="text" ng-model="textInput" id="textInput" placeholder="Type here..." class="form-control">
+            <br>
+            <button class="sty" type="btn" ng-click="search()">Search for sounds</button>
+        </form>
+    </div>
+    <h2>link to sound clips:</h2>
+    <a href="" style="font-size: x-large; color: white; text-align: center;">{{ref}}</a>
+    <!--<audio controls>-->
+        <!--<source src={{ref}} type="audio/wav">-->
+    <!--</audio>-->
+
+    <!--<embed src={{ref}} align="baseline" border="0" width="145" height="60" autostart="false" loop="true">-->
+
+    <!--<div id ="dataItems">-->
+        <!--<h2>Top 5 picks!</h2>-->
+        <!--<ul>-->
+            <!--<li ng-repeat="item to dataItems" class="change">-->
+                <!--<a href="" ng-click="browse()" style="font-size: x-large; color: white; text-align: center;">{{item.id}}</a>-->
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+</div>
+</body>
+</html>
+<script>
+    angular.module('sound', [])
+        .controller('soundsearch',  function ($scope,$http)  {
+            var inputData=document.getElementById('textInput');
+            $scope.dataItems = new Array();
+            $scope.search = function () {
+
+                if(inputData != null || inputData != "")
+                {
+                    var url = "https://www.freesound.org/apiv2/search/text/?query="+inputData.value
+                        +"&token=iK4eBS5D1QkPjPMZbyYdp3tGpMmELQbnH6uJboIf";
+                    var handler = $http.get(url);
+                    handler.success(function (data) {
+                        if(data!=null && data.results != null)
+                        {
+                            for(var i = 0; i<1; i++)
+                            {
+                                $scope.dataItems[i] =
+                                    {
+                                        "id": data.results[i].id,
+                                        "name": data.results[i].name
+                                    };
+                            }
+
+//                            alert(data.results[0].id);
+//                            $scope.sound = new Audio("https://freesound.org/embed/sound/iframe/"+data.results[0].id+"/simple/large/");
+//                            alert(sound);
+//                            alert($scope.sound);
+                            var url = "https://freesound.org/embed/sound/iframe/"+data.results[0].id+"/simple/large";
+                            $scope.ref =url.toString();
+                            alert($scope.ref);
+
+                            var x = document.createElement("AUDIO");
+
+                            if (x.canPlayType("audio/wav")) {
+                                x.setAttribute("src","https://freesound.org/embed/sound/iframe/"+data.results[0].id+"/simple/large.wav");
+                            } else {
+                                x.setAttribute("src","https://freesound.org/embed/sound/iframe/"+data.results[0].id+"/simple/large.ogg");
+                            }
+
+                            x.setAttribute("controls", "controls");
+                            document.body.appendChild(x);
+//                            var leftDiv = document.createElement("div"); //Create left div
+//                            leftDiv.align ="center";
+//                            leftDiv.id = "left"; //Assign div id
+//                            leftDiv.setAttribute("style", "width:66.5%; line-height: 26px; text-align:left; font-size:12pt; padding-left:8px; height:26px;"); //Set div attributes
+//                            leftDiv.style.background =  "transparent";
+//                            a = document.createElement('a');
+//                            a.href =  "https://freesound.org/search/?q="+data.results[0].id.toString();
+//                            a.innerHTML = "Link"
+//                            leftDiv.appendChild(a);
+//                            leftDiv.color = "white";
+//                            document.body.appendChild(leftDiv);
+
+//                            $scope.ref = "https://freesound.org/search/?q="+data.results[0].id.toString();
+                        }
+                    })
+                }
+            }
+            $scope.browse = function () {
+                alert("in function")
+                if(dataItem!=null)
+                {
+                    alert("in if function")
+                    var url = "https://freesound.org/embed/sound/iframe/"+dataItem.id+"/simple/large";
+                    $scope.path = url.toString();
+                }
+            }
+
+        });
+</script>
