@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/python_Lesson6_SourceCode.iml" filepath="$PROJECT_DIR$/.idea/python_Lesson6_SourceCode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/UseCase.iml" filepath="$PROJECT_DIR$/.idea/UseCase.iml" />
     </modules>
   </component>
 </project>
